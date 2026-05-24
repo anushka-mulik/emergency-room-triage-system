@@ -384,3 +384,18 @@ void generateReport() {
 
     printf(BLUE "========================================\n" RESET);
 }
+
+// DISPLAY CRITICAL PATIENT COUNT
+void showCriticalPatients() {
+
+    int count = 0;
+
+    for(int i = 0; i < size; i++) {
+
+        if(heap[i].severity >= 4) {
+            count++;
+        }
+    }
+
+    printf(RED "\nCritical Patients Waiting: %d\n" RESET, count);
+}
