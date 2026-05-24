@@ -53,4 +53,6 @@ void generateReport();
 
 void severityWarning(int severity);
 
+void dischargeSummary(struct Patient p);
+
 #endif

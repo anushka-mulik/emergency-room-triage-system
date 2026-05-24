@@ -1,0 +1,2 @@
+203,Amit,21,Cancer,5,1
+101,Riya,18,Fever,3,0

@@ -28,9 +28,10 @@ int main() {
 
         printf(" [5] Exit\n");
 
+        printf(" [6] Generate Emergency Report\n");
+
         printf("\nEnter Choice: ");
 
-        printf(" [6] Generate Emergency Report\n");
 
         scanf("%d", &choice);
 

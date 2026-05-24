@@ -290,21 +290,18 @@ void treatPatient() {
 
     printf(RED "\n=========== TREATING PATIENT ===========\n" RESET);
 
-    printf("ID       : %d\n", heap[0].id);
+    struct Patient treated = heap[0];
 
-    printf("Name     : %s\n", heap[0].name);
-
-    printf("Severity : %d\n", heap[0].severity);
+    dischargeSummary(treated);
 
     heap[0] = heap[size - 1];
-
     size--;
 
     heapifyDown(0);
 
     saveToFile();
 
-    printf(GREEN "\nPatient Treated Successfully!\n" RESET);
+    printf(GREEN "\nPatient Removed from System Successfully!\n" RESET);
 }
 
 // SEARCH PATIENT
@@ -423,4 +420,19 @@ void severityWarning(int severity) {
 
         printf(GREEN "\n[STABLE] Patient Condition Normal.\n" RESET);
     }
+}
+void dischargeSummary(struct Patient p) {
+
+    printf(GREEN "\n=========== DISCHARGE SUMMARY ===========\n" RESET);
+
+    printf("Patient ID      : %d\n", p.id);
+    printf("Name            : %s\n", p.name);
+    printf("Age             : %d\n", p.age);
+    printf("Disease         : %s\n", p.disease);
+    printf("Severity        : %d\n", p.severity);
+    printf("Arrival Order   : %d\n", p.arrivalOrder);
+
+    printf(GREEN "\nStatus: Patient successfully treated and discharged.\n" RESET);
+
+    printf(GREEN "=========================================\n\n" RESET);
 }
