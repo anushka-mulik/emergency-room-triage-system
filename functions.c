@@ -337,3 +337,65 @@ void searchPatient() {
 
     printf(RED "\nPatient Not Found!\n" RESET);
 }
+
+// EMERGENCY STATISTICS REPORT
+void generateReport() {
+
+    if(size == 0) {
+
+        printf(RED "\nNo Patient Data Available!\n" RESET);
+        return;
+    }
+
+    int criticalCount = 0;
+    int totalSeverity = 0;
+    int highestSeverity = heap[0].severity;
+
+    char criticalPatient[50];
+    strcpy(criticalPatient, heap[0].name);
+
+    for(int i = 0; i < size; i++) {
+
+        totalSeverity += heap[i].severity;
+
+        if(heap[i].severity >= 4) {
+            criticalCount++;
+        }
+
+        if(heap[i].severity > highestSeverity) {
+
+            highestSeverity = heap[i].severity;
+
+            strcpy(criticalPatient, heap[i].name);
+        }
+    }
+
+    float averageSeverity = (float)totalSeverity / size;
+
+    printf(BLUE "\n=========== EMERGENCY REPORT ===========\n" RESET);
+
+    printf(GREEN "Total Patients        : %d\n" RESET, size);
+
+    printf(RED "Critical Patients     : %d\n" RESET, criticalCount);
+
+    printf(YELLOW "Average Severity      : %.2f\n" RESET, averageSeverity);
+
+    printf(BLUE "Highest Severity Case : %s\n" RESET, criticalPatient);
+
+    printf(BLUE "========================================\n" RESET);
+}
+
+// DISPLAY CRITICAL PATIENT COUNT
+void showCriticalPatients() {
+
+    int count = 0;
+
+    for(int i = 0; i < size; i++) {
+
+        if(heap[i].severity >= 4) {
+            count++;
+        }
+    }
+
+    printf(RED "\nCritical Patients Waiting: %d\n" RESET, count);
+}
