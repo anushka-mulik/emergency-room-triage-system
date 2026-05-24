@@ -30,6 +30,8 @@ int main() {
 
         printf("\nEnter Choice: ");
 
+        printf(" [6] Generate Emergency Report\n");
+
         scanf("%d", &choice);
 
         switch(choice) {
@@ -55,6 +57,10 @@ int main() {
                 printf(GREEN "\nExiting System...\n" RESET);
 
                 return 0;
+
+            case 6:
+                generateReport();
+                break;
 
             default:
 
