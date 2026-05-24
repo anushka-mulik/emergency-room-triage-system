@@ -51,4 +51,6 @@ void heapifyDown(int i);
 
 void generateReport();
 
+void severityWarning(int severity);
+
 #endif

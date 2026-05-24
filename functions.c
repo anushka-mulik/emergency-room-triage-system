@@ -245,6 +245,8 @@ void addPatient() {
     }
 
     printf(GREEN "\nPatient Added Successfully!\n" RESET);
+
+    severityWarning(p.severity);
 }
 
 // DISPLAY PATIENTS
@@ -398,4 +400,27 @@ void showCriticalPatients() {
     }
 
     printf(RED "\nCritical Patients Waiting: %d\n" RESET, count);
+}
+// PATIENT SEVERITY WARNING SYSTEM
+void severityWarning(int severity) {
+
+    if(severity == 5) {
+
+        printf(RED "\n[CRITICAL] Immediate ICU Attention Required!\n" RESET);
+    }
+
+    else if(severity == 4) {
+
+        printf(YELLOW "\n[HIGH PRIORITY] Doctor Should Attend Quickly!\n" RESET);
+    }
+
+    else if(severity == 3) {
+
+        printf(BLUE "\n[MODERATE] Patient Should Be Monitored.\n" RESET);
+    }
+
+    else {
+
+        printf(GREEN "\n[STABLE] Patient Condition Normal.\n" RESET);
+    }
 }
